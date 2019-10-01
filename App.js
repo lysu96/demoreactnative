@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import HomeScreen from './screens/Home';
+import DetailScreen from './screens/Detail';
+// import Flist from './screens/Flist';
+import Creat from './screens/Creat';
 
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <View style={styles.bigBlue}>
-        <Text style={styles.red}>Hello, world!</Text>
-      </View>
-    );
-  }
-}
-const styles = StyleSheet.create({
-  bigBlue: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  red: {
-    color: "red",
-  },
+const HomeStack = createStackNavigator({
+  // Creat: Creat,
+  HomeScreen: HomeScreen,
+  // Flist: Flist,
+  Details: DetailScreen,
+  Creat: Creat,
 });
+
+export default createAppContainer(HomeStack);
